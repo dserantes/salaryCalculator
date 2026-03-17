@@ -1,5 +1,3 @@
-# salaryCalculator
-
 # 🧮 Calculadora Laboral España 2025
 
 App web estática para calcular nómina, IRPF, finiquito, bonus y beneficios fiscales según la normativa española vigente en 2025.
