@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora Laboral España 2025</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💶</text></svg>">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="8" fill="#6c63ff"/><text x="5" y="20" font-size="16" fill="white">€</text></svg>
+  <h1>Calculadora Laboral España</h1>
+  <span>2025 · Régimen General</span>
+</header>
+<div class="container">
+  <div class="tabs">
+    <div class="tab active" onclick="switchTab('nomina', this)">Nómina</div>
+    <div class="tab" onclick="switchTab('irpf', this)">IRPF & SS</div>
+    <div class="tab" onclick="switchTab('jubilacion', this)">Jubilación</div>
+    <div class="tab" onclick="switchTab('finiquito', this)">Finiquito</div>
+    <div class="tab" onclick="switchTab('bonus', this)">Bonus</div>
+    <div class="tab" onclick="switchTab('ticket', this)">Ticket Restaurante</div>
+    <div class="tab" onclick="switchTab('multiempresa', this)">Multi-empresa</div>
+  </div>
+
+  <!-- NÓMINA -->
+  <div class="panel active" id="panel-nomina">
+    <div class="grid">
+      <div class="card">
+        <h2>Datos salariales</h2>
+        <label>Salario bruto anual (€)</label>
+        <input type="number" id="n-bruto" value="35000">
+        <label>Número de pagas</label>
+        <select id="n-pagas">
+          <option value="12">12 pagas</option>
+          <option value="14" selected>14 pagas</option>
+        </select>
+        <label>Comunidad Autónoma</label>
+        <select id="n-ccaa">
+          <option value="andalucia">Andalucía</option>
+          <option value="aragon">Aragón</option>
+          <option value="asturias">Asturias</option>
+          <option value="baleares">Islas Baleares</option>
+          <option value="canarias">Canarias</option>
+          <option value="cantabria">Cantabria</option>
+          <option value="castilla_la_mancha">Castilla-La Mancha</option>
+          <option value="castilla_leon">Castilla y León</option>
+          <option value="cataluna">Cataluña</option>
+          <option value="extremadura">Extremadura</option>
+          <option value="galicia" selected>Galicia</option>
+          <option value="madrid">Madrid</option>
+          <option value="murcia">Murcia</option>
+          <option value="navarra">Navarra (foral)</option>
+          <option value="pais_vasco">País Vasco (foral)</option>
+          <option value="la_rioja">La Rioja</option>
+          <option value="valencia">C. Valenciana</option>
+        </select>
+        <label>Situación familiar</label>
+        <select id="n-familia">
+          <option value="0">Sin hijos / soltero</option>
+          <option value="1">1 hijo</option>
+          <option value="2">2 hijos</option>
+          <option value="3">3+ hijos</option>
+        </select>
+        <button class="btn" onclick="calcNomina()">Calcular nómina</button>
+      </div>
+      <div class="card">
+        <h2>Resultado</h2>
+        <div class="results" id="nomina-results">
+          <div class="info-box">Introduce tus datos y pulsa calcular.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- IRPF & SS -->
+  <div class="panel" id="panel-irpf">
+    <div class="grid">
+      <div class="card">
+        <h2>Tramos IRPF 2025</h2>
+        <div class="info-box" style="margin-top:0">Tipo estatal + autonómico general.</div>
+        <table class="tramos-table">
+          <thead><tr><th>Base liquidable</th><th>Estatal</th><th>Total aprox.</th></tr></thead>
+          <tbody>
+            <tr><td>0 – 12.450 €</td><td>9,5%</td><td><span class="badge badge-green">19%</span></td></tr>
+            <tr><td>12.450 – 20.200 €</td><td>12%</td><td><span class="badge badge-green">24%</span></td></tr>
+            <tr><td>20.200 – 35.200 €</td><td>15%</td><td><span class="badge badge-blue">30%</span></td></tr>
+            <tr><td>35.200 – 60.000 €</td><td>18,5%</td><td><span class="badge badge-blue">37%</span></td></tr>
+            <tr><td>60.000 – 300.000 €</td><td>22,5%</td><td><span class="badge badge-red">45%</span></td></tr>
+            <tr><td>Más de 300.000 €</td><td>24,5%</td><td><span class="badge badge-red">47%</span></td></tr>
+          </tbody>
+        </table>
+        <hr>
+        <h2 style="margin-top:4px">Cotizaciones trabajador 2025</h2>
+        <table class="tramos-table">
+          <thead><tr><th>Concepto</th><th>% trabajador</th></tr></thead>
+          <tbody>
+            <tr><td>Contingencias comunes</td><td>4,70%</td></tr>
+            <tr><td>Desempleo</td><td>1,55%</td></tr>
+            <tr><td>Formación profesional</td><td>0,10%</td></tr>
+            <tr><td>Mecanismo equidad</td><td>0,13%</td></tr>
+            <tr><td><b>Total</b></td><td><b>6,48%</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card">
+        <h2>Calculadora IRPF rápida</h2>
+        <label>Salario bruto anual (€)</label>
+        <input type="number" id="irpf-bruto" value="40000">
+        <label>Mínimo personal (€)</label>
+        <input type="number" id="irpf-minimo" value="5550">
+        <label>Comunidad Autónoma</label>
+        <select id="irpf-ccaa">
+          <option value="andalucia">Andalucía</option>
+          <option value="aragon">Aragón</option>
+          <option value="asturias">Asturias</option>
+          <option value="baleares">Islas Baleares</option>
+          <option value="canarias">Canarias</option>
+          <option value="cantabria">Cantabria</option>
+          <option value="castilla_la_mancha">Castilla-La Mancha</option>
+          <option value="castilla_leon">Castilla y León</option>
+          <option value="cataluna">Cataluña</option>
+          <option value="extremadura">Extremadura</option>
+          <option value="galicia" selected>Galicia</option>
+          <option value="madrid">Madrid</option>
+          <option value="murcia">Murcia</option>
+          <option value="navarra">Navarra (foral)</option>
+          <option value="pais_vasco">País Vasco (foral)</option>
+          <option value="la_rioja">La Rioja</option>
+          <option value="valencia">C. Valenciana</option>
+        </select>
+        <button class="btn" onclick="calcIRPF()">Calcular retención estimada</button>
+        <div class="results" id="irpf-results" style="margin-top:16px">
+          <div class="info-box">El cálculo es aproximado.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JUBILACIÓN -->
+  <div class="panel" id="panel-jubilacion">
+    <div class="grid">
+      <div class="card">
+        <h2>Estimación pensión jubilación</h2>
+        <div class="info-box" style="margin-top:0; margin-bottom:12px">Estimación orientativa basada en cotización al Régimen General.</div>
+        <label>Edad actual</label>
+        <input type="number" id="j-edad" value="28" min="16" max="65">
+        <label>Salario bruto anual actual (€)</label>
+        <input type="number" id="j-bruto" value="35000">
+        <label>Años cotizados hasta hoy</label>
+        <input type="number" id="j-cotizados" value="5" min="0">
+        <label>Crecimiento salarial anual estimado (%)</label>
+        <input type="number" id="j-crecimiento" value="2" step="0.5">
+        <label>Edad de jubilación</label>
+        <select id="j-edad-jub">
+          <option value="65">65 años</option>
+          <option value="66">66 años</option>
+          <option value="67" selected>67 años (ordinaria 2027+)</option>
+        </select>
+        <button class="btn" onclick="calcJubilacion()">Estimar pensión</button>
+      </div>
+      <div class="card">
+        <h2>Resultado estimado</h2>
+        <div class="results" id="jub-results">
+          <div class="info-box">Introduce tus datos y pulsa calcular.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FINIQUITO -->
+  <div class="panel" id="panel-finiquito">
+    <div class="grid">
+      <div class="card">
+        <h2>Calculadora de finiquito</h2>
+        <label>Salario bruto mensual (€)</label>
+        <input type="number" id="f-mensual" value="2500">
+        <label>Días trabajados del mes actual (sin cobrar)</label>
+        <input type="number" id="f-dias" value="15" min="0" max="31">
+        <label>Días de vacaciones no disfrutadas</label>
+        <input type="number" id="f-vacaciones" value="5" min="0">
+        <label>Pagas extra anuales</label>
+        <select id="f-pagas">
+          <option value="2" selected>2 pagas extra</option>
+          <option value="1">1 paga extra</option>
+          <option value="0">0 (prorrateadas)</option>
+        </select>
+        <label>Meses trabajados del año actual</label>
+        <input type="number" id="f-meses" value="4" min="0" max="12">
+        <label>Tipo de baja</label>
+        <select id="f-tipo">
+          <option value="0">Baja voluntaria</option>
+          <option value="12">Fin de contrato temporal (12 días/año)</option>
+          <option value="20">Despido objetivo (20 días/año)</option>
+          <option value="33">Despido improcedente (33 días/año)</option>
+          <option value="45">Despido improcedente pre-2012 (45 días/año)</option>
+        </select>
+        <label>Años trabajados en la empresa</label>
+        <input type="number" id="f-anios" value="3" min="0">
+        <label>% IRPF aplicable</label>
+        <input type="number" id="f-irpf" value="20" step="0.5">
+        <button class="btn" onclick="calcFiniquito()">Calcular finiquito</button>
+      </div>
+      <div class="card">
+        <h2>Desglose finiquito</h2>
+        <div class="results" id="fin-results">
+          <div class="info-box">Introduce tus datos y pulsa calcular.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BONUS -->
+  <div class="panel" id="panel-bonus">
+    <div class="grid">
+      <div class="card">
+        <h2>Cálculo de bonus</h2>
+        <label>Salario bruto anual (€)</label>
+        <input type="number" id="b-bruto" value="35000">
+        <label>% de bonus sobre salario bruto</label>
+        <input type="number" id="b-pct" value="10" step="0.5">
+        <label>% de consecución del objetivo</label>
+        <input type="number" id="b-consecucion" value="100" min="0" max="200">
+        <label>% IRPF de retención</label>
+        <input type="number" id="b-irpf" value="20" step="0.5">
+        <label>¿Se suma al salario para calcular IRPF?</label>
+        <select id="b-acumulado">
+          <option value="yes" selected>Sí (cálculo acumulado anual)</option>
+          <option value="no">No (retención fija indicada)</option>
+        </select>
+        <button class="btn" onclick="calcBonus()">Calcular bonus</button>
+      </div>
+      <div class="card">
+        <h2>Resultado bonus</h2>
+        <div class="results" id="bonus-results">
+          <div class="info-box">Introduce tus datos y pulsa calcular.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TICKET RESTAURANTE -->
+  <div class="panel" id="panel-ticket">
+    <div class="grid">
+      <div class="card">
+        <h2>Beneficio fiscal Ticket Restaurante</h2>
+        <div class="info-box" style="margin-top:0; margin-bottom:12px">Exento de IRPF hasta <b>11 €/día</b> laborable. No cotiza a SS.</div>
+        <label>Días laborables al mes</label>
+        <input type="number" id="t-dias" value="22" min="1" max="23">
+        <label>Importe ticket por día (€) — máx. 11 €</label>
+        <input type="number" id="t-importe" value="9" step="0.5" min="1" max="11">
+        <label>Salario bruto anual (€)</label>
+        <input type="number" id="t-bruto" value="35000">
+        <label>% IRPF marginal estimado</label>
+        <input type="number" id="t-irpf" value="30" step="0.5">
+        <button class="btn" onclick="calcTicket()">Calcular ahorro fiscal</button>
+      </div>
+      <div class="card">
+        <h2>Ahorro fiscal estimado</h2>
+        <div class="results" id="ticket-results">
+          <div class="info-box">Introduce tus datos y pulsa calcular.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MULTI-EMPRESA -->
+  <div class="panel" id="panel-multiempresa">
+    <div class="grid">
+      <div class="card">
+        <h2>IRPF Multi-empresa</h2>
+        <div class="info-box" style="margin-top:0; margin-bottom:12px">Calcula el % de retención para <b>salir a 0</b> en la declaración (Modelo 145).</div>
+        <div id="empresas-container">
+          <div class="empresa-bloque">
+            <label>Empresa 1 — Bruto percibido (€)</label>
+            <input type="number" class="emp-bruto" value="20000">
+            <label>IRPF retenido por esa empresa (%)</label>
+            <input type="number" class="emp-irpf" value="15">
+          </div>
+          <div class="empresa-bloque">
+            <label>Empresa 2 — Bruto percibido (€)</label>
+            <input type="number" class="emp-bruto" value="18000">
+            <label>IRPF retenido por esa empresa (%)</label>
+            <input type="number" class="emp-irpf" value="12">
+          </div>
+        </div>
+        <button class="btn" style="background:var(--surface2); color:var(--text); border:1px solid var(--border); margin-top:10px" onclick="addEmpresa()">+ Añadir empresa</button>
+        <label style="margin-top:12px">Mínimo personal (€)</label>
+        <input type="number" id="me-minimo" value="5550">
+        <label>Comunidad Autónoma</label>
+        <select id="me-ccaa">
+          <option value="andalucia">Andalucía</option>
+          <option value="aragon">Aragón</option>
+          <option value="asturias">Asturias</option>
+          <option value="baleares">Islas Baleares</option>
+          <option value="canarias">Canarias</option>
+          <option value="cantabria">Cantabria</option>
+          <option value="castilla_la_mancha">Castilla-La Mancha</option>
+          <option value="castilla_leon">Castilla y León</option>
+          <option value="cataluna">Cataluña</option>
+          <option value="extremadura">Extremadura</option>
+          <option value="galicia" selected>Galicia</option>
+          <option value="madrid">Madrid</option>
+          <option value="murcia">Murcia</option>
+          <option value="navarra">Navarra (foral)</option>
+          <option value="pais_vasco">País Vasco (foral)</option>
+          <option value="la_rioja">La Rioja</option>
+          <option value="valencia">C. Valenciana</option>
+        </select>
+        <button class="btn" onclick="calcMultiEmpresa()">Calcular % IRPF óptimo</button>
+      </div>
+      <div class="card">
+        <h2>Resultado</h2>
+        <div class="results" id="me-results">
+          <div class="info-box">Introduce los datos de cada empresa y pulsa calcular.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="calculator.js"></script>
+</body>
+</html>
