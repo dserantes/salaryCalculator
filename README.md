@@ -35,7 +35,3 @@ git add index.html
 git commit -m "feat: add calculadora laboral España 2025"
 git push origin main
 ```
-
-Luego en GitHub: **Settings → Pages → Branch: main / (root)** → Save.
-
-Tu app estará disponible en:
