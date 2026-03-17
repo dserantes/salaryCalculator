@@ -2,7 +2,7 @@
 
 App web estática para calcular nómina, IRPF, finiquito, bonus y beneficios fiscales según la normativa española vigente en 2025.
 
-🔗 **Demo:** [tu-usuario.github.io/calculadora-laboral](https://tu-usuario.github.io/calculadora-laboral)
+🔗 **Demo:** [dserantes.github.io/salaryCalculator](https://dserantes.github.io/salaryCalculator)
 
 ---
 
