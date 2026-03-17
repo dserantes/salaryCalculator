@@ -19,19 +19,3 @@ App web estática para calcular nómina, IRPF, finiquito, bonus y beneficios fis
 | **Multi-empresa** | % de retención óptimo para salir a 0 en la declaración (Modelo 145) |
 
 ---
-
-## 🚀 Despliegue en GitHub Pages
-
-```bash
-# 1. Clona o crea el repositorio
-git init calculadora-laboral
-cd calculadora-laboral
-
-# 2. Copia el archivo
-cp calculadora_laboral_es.html index.html
-
-# 3. Sube los cambios
-git add index.html
-git commit -m "feat: add calculadora laboral España 2025"
-git push origin main
-```
